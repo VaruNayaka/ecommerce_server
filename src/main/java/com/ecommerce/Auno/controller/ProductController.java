@@ -29,14 +29,16 @@ public class ProductController {
 
 	@GetMapping("/products")
 	public ResponseEntity<Page<Product>> findProductByCategoryHandler(@RequestParam String category,
-			@RequestParam List<String> color, @RequestParam Integer minPrice, @RequestParam Integer maxPrice,
-			@RequestParam Integer minDiscount, @RequestParam String sort, @RequestParam String stock,
-			@RequestParam Integer pageNumber, @RequestParam Integer pageSize) {
-		Page<Product> res = productService.getAllProduct(category, color, color, minPrice, maxPrice, minDiscount, sort,
-				stock, pageNumber, pageSize);
-		System.out.println("complete Prodcut");
-		return new ResponseEntity<>(res, HttpStatus.ACCEPTED);
+			@RequestParam List<String>color,@RequestParam List<String> size,@RequestParam Integer minPrice,
+			@RequestParam Integer maxPrice, @RequestParam Integer minDiscount, @RequestParam String sort, 
+			@RequestParam String stock, @RequestParam Integer pageNumber,@RequestParam Integer pageSize){
 
+		
+		Page<Product> res= productService.getAllProduct(category, color, size, minPrice, maxPrice, minDiscount, sort,stock,pageNumber,pageSize);
+		
+		System.out.println("complete products");
+		return new ResponseEntity<>(res,HttpStatus.ACCEPTED);
+		
 	}
 	@GetMapping("products/id/{productId}")
 	public ResponseEntity<Product> findProducrByHandler(@PathVariable Long productId)throws ProductException{

@@ -147,6 +147,12 @@ public Product createProduct(CreateProductRequest req) {
 		Page<Product> filterProducts = new PageImpl<>(pageContents, pageable, products.size());
 		return filterProducts;
 	}
+	@Override
+	public List<Product> searchProduct(String query) {
+		List<Product> products=productRepository.searchProduct(query);
+		return products;
+	}
+
 
 	@Override
 	public List<Product> getAllProducts() {

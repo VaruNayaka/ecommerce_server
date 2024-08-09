@@ -30,7 +30,7 @@ public class AppConfig {
 					@Override
 					public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
 						CorsConfiguration cfg = new CorsConfiguration();
-						cfg.setAllowedOrigins(Arrays.asList("http://localhost:3000/", "https://ecommerce-auno-kappa.vercel.app/"));
+						cfg.setAllowedOrigins(Arrays.asList("http://localhost:3000/", "https://ecommerceauno-varuns-projects-d82c773d.vercel.app"));
 						cfg.setAllowedMethods(Arrays.asList("GET", "POST","DELETE","PUT"));
 						cfg.setAllowedMethods(Collections.singletonList("*"));
 						cfg.setAllowCredentials(true);
